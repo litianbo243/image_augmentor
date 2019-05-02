@@ -2,7 +2,7 @@ docker pull ubuntu:16.04
 
 docker run -it -v /mnt:/mnt --network=host --name ltb-ubuntu-python2 ubuntu:16.04 /bin/bash
 
-将source.list放在mnt目录下,再复制到/etc/apt/source.list中
+将sources.list放在mnt目录下,再复制到/etc/apt/sources.list中,sources.list备份在当前目录下了
 cp /mnt/sources.list /etc/apt/sources.list
 
 更新源
