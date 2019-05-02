@@ -1,0 +1,31 @@
+docker pull ubuntu:16.04
+
+docker run -it -v /mnt:/mnt --network=host --name ltb-ubuntu-python2 ubuntu:16.04 /bin/bash
+
+将source.list放在mnt目录下,再复制到/etc/apt/source.list中
+cp /mnt/sources.list /etc/apt/sources.list
+
+更新源
+apt-get update
+
+安装python2.7 python-pip
+apt-get install python2.7 python-pip
+
+pip清华源加速 -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+更新pip
+pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+安装依赖文件
+apt-get install python-numpy python-scipy python-matplotlib
+
+安装scikit-image包
+pip2 install 'scikit-image<0.15' -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+进入工作目录运行代码，成功，无报错
+cd /mnt/image_augmentor/
+python main.py
+
+
+
+
